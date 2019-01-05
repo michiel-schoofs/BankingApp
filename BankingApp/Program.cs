@@ -4,6 +4,7 @@ using System;
 namespace BankingApp {
     class Program {
         static void Main(string[] args) {
+            //Test method for execution
             BankAccount myAccount = new SavingsAccount("123-4567890-02", 0.01M);
             Console.WriteLine($"AccountNumber: {myAccount.AccountNumber}");
             Console.WriteLine($"Balance: {myAccount.Balance}");

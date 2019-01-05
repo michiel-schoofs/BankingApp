@@ -3,14 +3,21 @@
 
 namespace BankingApp.Models {
     public class SavingsAccount : BankAccount{
-        protected const decimal _withdrawCost=0.25M;
+        #region Fields
+        protected const decimal _withdrawCost = 0.25M;
+        #endregion
 
+        #region Properties
         public decimal InterestRate { get; private set; }
-
-        public SavingsAccount(string bankAccountNumber, decimal interestRate):base(bankAccountNumber) {
+        #endregion
+        
+        #region Constructor
+        public SavingsAccount(string bankAccountNumber, decimal interestRate) : base(bankAccountNumber) {
             InterestRate = interestRate;
         }
+        #endregion
 
+        #region Methods
         public void AddInterest() {
             base.Deposit(Balance * InterestRate);
         }
@@ -21,6 +28,7 @@ namespace BankingApp.Models {
 
             base.Withdraw(amount);
             base.Withdraw(_withdrawCost);
-        }
+        } 
+        #endregion
     }
 }
