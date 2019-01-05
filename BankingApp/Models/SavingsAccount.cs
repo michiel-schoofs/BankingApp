@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace BankingApp.Models {
     public class SavingsAccount : BankAccount{
@@ -17,7 +16,11 @@ namespace BankingApp.Models {
         }
 
         public override void Withdraw(decimal amount) {
-            base.Withdraw(amount + _withdrawCost);
+            if (Balance - (amount + _withdrawCost) < 0)
+                throw new InvalidOperationException();
+
+            base.Withdraw(amount);
+            base.Withdraw(_withdrawCost);
         }
     }
 }

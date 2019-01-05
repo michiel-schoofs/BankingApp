@@ -61,11 +61,16 @@ namespace BankingApp.Models {
             _transactions.Add(new Transaction(amount, TransactionType.Withdraw));
         } 
 
-        public ICollection<Transaction> GetTransactions(DateTime? from, DateTime? to) {
+        public ICollection<Transaction> GetTransactions(DateTime? from=null, DateTime? to=null) {
             IList<Transaction> transList = new List<Transaction>();
 
-            foreach(Transaction t in _transactions) {
-                if (t.DateOfTrans.CompareTo(from) >= 0 && t.DateOfTrans.CompareTo(to) <= 1)
+            if (from == null)
+                from = DateTime.MinValue;
+            if (to == null)
+                to = DateTime.MaxValue;
+
+            foreach (Transaction t in _transactions) {
+                if (t.DateOfTrans >= from && t.DateOfTrans <= to)
                     transList.Add(t);
             }
 

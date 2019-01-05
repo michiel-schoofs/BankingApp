@@ -14,6 +14,8 @@ namespace BankingApp.Models {
                 return _amount;
             }
             private set {
+                if (value < 0)
+                    throw new ArgumentException("Amount of a transaction can't be less then zero");
                 _amount = value;
             }
         }
@@ -33,7 +35,7 @@ namespace BankingApp.Models {
         public Transaction(decimal amount, TransactionType type) {
             Amount = amount;
             TransactionType = type;
-            DateOfTrans = DateTime.Now;
+            DateOfTrans = DateTime.Today;
         } 
         #endregion
     }
