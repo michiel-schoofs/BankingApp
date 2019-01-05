@@ -9,7 +9,7 @@ namespace BankingApp {
             Console.WriteLine($"Balance: {myAccount.Balance}");
 
             myAccount.Deposit(200M);
-            ((SavingsAccount)myAccount).AddInterest();
+            (myAccount as SavingsAccount).AddInterest();
             Console.WriteLine($"Balance after depositing 200 euros:{myAccount.Balance}");
             Console.WriteLine($"Number of transactions={myAccount.NumberOfTransactions}");
             myAccount.Withdraw(100M);

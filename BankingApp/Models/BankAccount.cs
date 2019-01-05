@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 namespace BankingApp.Models {
-    public class BankAccount {
+    public class BankAccount : IBankAccount {
         #region Fields
         private string _accountNumber;
         private IList<Transaction> _transactions;
