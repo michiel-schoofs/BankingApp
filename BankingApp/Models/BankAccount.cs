@@ -33,7 +33,7 @@ namespace BankingApp.Models {
             _transactions.Add(new Transaction(amount, TransactionType.Deposit));
         }
 
-        public void Withdraw(decimal amount) {
+        public virtual void Withdraw(decimal amount) {
             Balance -= amount;
             _transactions.Add(new Transaction(amount, TransactionType.Withdraw));
         } 

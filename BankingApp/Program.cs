@@ -4,11 +4,12 @@ using System;
 namespace BankingApp {
     class Program {
         static void Main(string[] args) {
-            BankAccount myAccount = new BankAccount("123-123123-12");
+            BankAccount myAccount = new SavingsAccount("123-123123-12",0.01M);
             Console.WriteLine($"AccountNumber: {myAccount.AccountNumber}");
             Console.WriteLine($"Balance: {myAccount.Balance}");
 
             myAccount.Deposit(200M);
+            ((SavingsAccount)myAccount).AddInterest();
             Console.WriteLine($"Balance after depositing 200 euros:{myAccount.Balance}");
             Console.WriteLine($"Number of transactions={myAccount.NumberOfTransactions}");
             myAccount.Withdraw(100M);
