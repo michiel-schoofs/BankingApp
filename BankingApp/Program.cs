@@ -17,6 +17,8 @@ namespace BankingApp {
             Console.WriteLine($"Number of transactions={myAccount.NumberOfTransactions}");
             int aantal = myAccount.GetTransactions(DateTime.Today.AddDays(-2), DateTime.Today).Count;
             Console.WriteLine($"Total transactions: {aantal}");
+
+            Console.WriteLine(myAccount);
             Console.ReadKey();
         }
     }

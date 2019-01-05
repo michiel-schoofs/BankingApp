@@ -48,6 +48,21 @@ namespace BankingApp.Models {
 
             return transList;
         }
+
+        public override string ToString() {
+            return $"{AccountNumber} - {Balance}";
+        }
+
+        public override bool Equals(object obj) {
+            BankAccount ba = obj as BankAccount;
+            if (ba == null)
+                return false;
+            return ba.AccountNumber == AccountNumber;
+        }
+
+        public override int GetHashCode() {
+            return AccountNumber?.GetHashCode() ?? 0;
+        }
         #endregion
     }
 }
