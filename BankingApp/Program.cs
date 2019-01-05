@@ -10,8 +10,12 @@ namespace BankingApp {
 
             myAccount.Deposit(200M);
             Console.WriteLine($"Balance after depositing 200 euros:{myAccount.Balance}");
+            Console.WriteLine($"Number of transactions={myAccount.NumberOfTransactions}");
             myAccount.Withdraw(100M);
             Console.WriteLine($"Balance after withdrawing 100 euros:{myAccount.Balance}");
+            Console.WriteLine($"Number of transactions={myAccount.NumberOfTransactions}");
+            int aantal = myAccount.GetTransactions(DateTime.Today.AddDays(-2), DateTime.Today).Count;
+            Console.WriteLine($"Total transactions: {aantal}");
             Console.ReadKey();
         }
     }
